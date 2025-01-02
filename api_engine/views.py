@@ -44,10 +44,7 @@ def manipular_usuario(request,user):
       return Response(status=status.HTTP_400_BAD_REQUEST)
     
   if request.method =='DELETE':
-    if user:
-        usuario_a_se_deletar = Usuarios.objects.get(nome_site=user)
-    else:
-       usuario_a_se_deletar = Usuarios.objects.get(nome_site=request.data['nome_site'])
+    usuario_a_se_deletar = Usuarios.objects.get(nome_site=user)
     usuario_a_se_deletar.delete()
     return Response(status.HTTP_202_ACCEPTED)
   
