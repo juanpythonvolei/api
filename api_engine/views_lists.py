@@ -13,7 +13,7 @@ import json
 def new(request):
     if request.method == 'POST':
       try:
-        Listas.objects.get(quando=request.data['lista_relacionada'],status='ativo')
+        Listas.objects.get(status='ativo')
         return Response(status=status.HTTP_400_BAD_REQUEST)
       except:
         serializer = ListasSerializer(data=request.data)
