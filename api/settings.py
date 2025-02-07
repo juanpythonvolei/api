@@ -54,7 +54,7 @@ WSGI_APPLICATION = 'api.wsgi.application'
 
 DATABASES = {
     'default':dj_database_url.config(
-        default='postgresql://postgres:RdHLTYmyEFIRYdsNtpBPQBYQsdpvSkdB@viaduct.proxy.rlwy.net:17618/railway',
+        default=os.environ.get('DATABASE_PUBLIC_URL'),
         conn_max_age = 600,
         ssl_require=not DEBUG
     )
